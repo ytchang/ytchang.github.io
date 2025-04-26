@@ -1,19 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.3133a0d2.css",
-    "main.js": "/static/js/main.0415e7f0.js",
+    "main.css": "/static/css/main.700177eb.css",
+    "main.js": "/static/js/main.c3c0c512.js",
     "static/js/453.fd663ea2.chunk.js": "/static/js/453.fd663ea2.chunk.js",
+    "static/media/參賽作品─The Fortress-張勻慈-4-blur-background.jpg": "/static/media/參賽作品─The Fortress-張勻慈-4-blur-background.27aee9bbb75da767538b.jpg",
+    "static/media/參賽作品─The Fortress-張勻慈-2-blur-background.jpg": "/static/media/參賽作品─The Fortress-張勻慈-2-blur-background.cc7050f53c8c3196936d.jpg",
     "static/media/1.jpg": "/static/media/1.271ad73f013e993903c0.jpg",
+    "static/media/397A1655-blur-background.jpg": "/static/media/397A1655-blur-background.271ad73f013e993903c0.jpg",
+    "static/media/cover.jpg": "/static/media/cover.a6767d5db340e7bad64a.jpg",
+    "static/media/IMG_0565.JPG": "/static/media/IMG_0565.2daf58a39130934f34d6.JPG",
     "static/media/profile.jpg": "/static/media/profile.1f314891818ae6c8e9c2.jpg",
     "static/media/2.jpg": "/static/media/2.a6767d5db340e7bad64a.jpg",
+    "static/media/out_the_cage_yun-tzu_chang.jpg": "/static/media/out_the_cage_yun-tzu_chang.a6767d5db340e7bad64a.jpg",
+    "static/media/IMG_0568.JPG": "/static/media/IMG_0568.1f40259aca8bb91eddfc.JPG",
     "static/media/404.svg": "/static/media/404.f7a1746b6c32d82a3f32c77fc778e768.svg",
     "index.html": "/index.html",
-    "main.3133a0d2.css.map": "/static/css/main.3133a0d2.css.map",
-    "main.0415e7f0.js.map": "/static/js/main.0415e7f0.js.map",
+    "main.700177eb.css.map": "/static/css/main.700177eb.css.map",
+    "main.c3c0c512.js.map": "/static/js/main.c3c0c512.js.map",
     "453.fd663ea2.chunk.js.map": "/static/js/453.fd663ea2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3133a0d2.css",
-    "static/js/main.0415e7f0.js"
+    "static/css/main.700177eb.css",
+    "static/js/main.c3c0c512.js"
   ]
 }
