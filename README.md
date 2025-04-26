@@ -113,3 +113,9 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ### Manual
 
 All texts are in /src/Data.js
+
+to deploy locally
+npm start
+
+to deploy to the web
+npm run deploy
