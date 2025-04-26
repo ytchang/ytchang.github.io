@@ -107,3 +107,9 @@ You can view a live preview of the portfolio here [https://portfolio-template-fo
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/rakshixh/Portfolio-Template-For-Artists/blob/main/LICENSE) file for details.
+
+
+
+### Manual
+
+All texts are in /src/Data.js

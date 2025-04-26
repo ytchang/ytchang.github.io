@@ -1,14 +1,13 @@
 const Data = {
-  WebsiteTitle: "Portfolio | Artists",
-  HeaderTitle: "Artist's Portfolio",
+  WebsiteTitle: "Yun-Tzu Chang",
+  HeaderTitle: "Yun-Tzu Chang",
   FooterText: "© 2024 Artist's Portfolio. All rights reserved.",
-  AboutEmail: "Your Email Address",
+  AboutEmail: "yuntz.c@gmail.com",
   AboutEmailSubject: "Subject of the Email",
-  AboutHeading: "About Me",
-  AboutTextParagraph1:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  AboutTextParagraph2:
-    " Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  AboutHeading: "Bio",
+  AboutTextParagraph1: "Yun-Tzu Chang is a Seattle-based sculptor from Taiwan. Her journey began with manga character figures exhibited at Tokyo’s Wonder Festival in the early 2010s. While working as a software engineer, she has evolved from pop culture-inspired resin figures to mixed-media ceramics, exploring psychological states through surreal abstraction. Drawing on her engineering background, she designs with intentionality, focusing on clear concepts and structure. Her work merges figurative realism with abstract elements, inviting viewers into emotional landscapes shaped by themes of confinement, isolation, and hope.",
+  AboutHeading2: "Artist Statement",
+  AboutTextParagraph2: "I create sculptures that give form to internal tension—conflicts between freedom and restraint, connection and solitude. My figures, inspired by live models or imagined characters, shift into surreal forms that visualize psychological states. Abstraction allows me to express what the figure alone can’t—confining walls, openings that suggest escape, spaces that unsettle. I aim to raise questions, inviting reflection without offering answers.",
   AboutButtonText: "Say Hey!",
 };
 

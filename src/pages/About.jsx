@@ -37,10 +37,11 @@ function About() {
         <div className={AboutCSS.textWrapper}>
           <h1>{data.AboutHeading}</h1>
           <p>{data.AboutTextParagraph1}</p>
+          <h1>{data.AboutHeading2}</h1>
           <p>{data.AboutTextParagraph2}</p>
-          <button onClick={handleClick} className={AboutCSS.contactButton}>
+          {/* <button onClick={handleClick} className={AboutCSS.contactButton}>
             {data.AboutButtonText}
-          </button>
+          </button> */}
         </div>
       </div>
       <Footer />

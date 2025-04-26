@@ -37,6 +37,7 @@ function About() {
         <div className={AboutCSS.textWrapper}>
           <h1>{data.AboutHeading}</h1>
           <p>{data.AboutTextParagraph1}</p>
+          <h1>Artist Statement</h1>
           <p>{data.AboutTextParagraph2}</p>
           <button onClick={handleClick} className={AboutCSS.contactButton}>
             {data.AboutButtonText}
