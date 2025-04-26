@@ -13,6 +13,7 @@ const importAllImages = (r) => {
   r.keys().forEach((key) => {
     // Extract series name from path (e.g., "./series1/cover.jpg" -> "series1")
     const seriesName = key.split('/')[1];
+    console.log('Found series:', seriesName); // Debug log
     
     if (!seriesImages[seriesName]) {
       seriesImages[seriesName] = [];
@@ -26,6 +27,7 @@ const importAllImages = (r) => {
     }
   });
 
+  console.log('Gallery Data:', galleryData); // Debug log
   return { coverImages, seriesImages };
 };
 
@@ -39,6 +41,8 @@ function Gallery() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const openLightbox = (series) => {
+    console.log('Opening series:', series); // Debug log
+    console.log('Gallery data for series:', galleryData[series]); // Debug log
     setSelectedSeries(series);
     setCurrentImageIndex(0);
     document.body.style.overflow = 'hidden';
@@ -91,7 +95,11 @@ function Gallery() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
+            transition={{ 
+              duration: 0.8,
+              delay: index * 0.2,
+              ease: "easeOut"
+            }}
             onClick={() => openLightbox(seriesName)}
           >
             <div className={GalleryCSS.imageWrapper}>
@@ -112,30 +120,26 @@ function Gallery() {
       {selectedSeries && (
         <div className={GalleryCSS.lightbox} onClick={closeLightbox}>
           <div className={GalleryCSS.lightboxContent} onClick={(e) => e.stopPropagation()}>
-            <div className={GalleryCSS.seriesInfo}>
-              <h2>{galleryData[selectedSeries]?.title}</h2>
-              <p>{galleryData[selectedSeries]?.description}</p>
-            </div>
             <div className={GalleryCSS.imageSection}>
-              <button 
-                className={`${GalleryCSS.navButton} ${GalleryCSS.prevButton}`}
+              <div 
+                className={`${GalleryCSS.navArea} ${GalleryCSS.prevArea}`}
                 onClick={goToPrevious}
-              >
-                &#10094;
-              </button>
+              />
               <div className={GalleryCSS.lightboxImageWrapper}>
                 <img
                   src={seriesImages[selectedSeries][currentImageIndex]}
-                  alt={`${galleryData[selectedSeries]?.title} - Image ${currentImageIndex + 1}`}
+                  alt={`${galleryData[selectedSeries]?.title || selectedSeries} - Image ${currentImageIndex + 1}`}
                   className={GalleryCSS.lightboxImage}
                 />
               </div>
-              <button 
-                className={`${GalleryCSS.navButton} ${GalleryCSS.nextButton}`}
+              <div 
+                className={`${GalleryCSS.navArea} ${GalleryCSS.nextArea}`}
                 onClick={goToNext}
-              >
-                &#10095;
-              </button>
+              />
+            </div>
+            <div className={GalleryCSS.seriesInfo}>
+              <h2>{galleryData[selectedSeries]?.title || selectedSeries}</h2>
+              <p>{galleryData[selectedSeries]?.description}</p>
             </div>
           </div>
           <button className={GalleryCSS.closeButton} onClick={closeLightbox}>

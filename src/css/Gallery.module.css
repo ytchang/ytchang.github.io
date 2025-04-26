@@ -71,27 +71,57 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  padding: 20px;
 }
 
 .lightboxContent {
   position: relative;
   display: flex;
   flex-direction: row;
-  gap: 40px;
-  max-width: 90vw;
-  max-height: 90vh;
-  padding: 40px;
+  width: 90vw;
+  height: 85vh;
+  max-width: 1600px;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 8px;
 }
 
+.imageSection {
+  position: relative;
+  width: calc(100% - 340px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.lightboxImageWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.lightboxImage {
+  width: 800px;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 .seriesInfo {
-  flex: 0 0 300px;
-  padding-left: 20px;
+  width: 340px;
+  height: 100%;
+  padding: 40px;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .seriesInfo h2 {
@@ -105,28 +135,7 @@
   font-size: 1rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
-}
-
-.imageSection {
-  position: relative;
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  align-items: center;
-}
-
-.lightboxImageWrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightboxImage {
-  max-width: 100%;
-  max-height: 70vh;
-  object-fit: contain;
+  margin-bottom: 0;
 }
 
 .closeButton {
@@ -154,73 +163,114 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
-.navButton {
+.navArea {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  top: 0;
+  height: 100%;
+  width: 40%;
   cursor: pointer;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  opacity: 0.8;
-  transition: opacity 0.3s;
-  z-index: 1001;
+  background: transparent;
 }
 
-.navButton:hover {
+.prevArea {
+  left: 0;
+}
+
+.nextArea {
+  right: 0;
+}
+
+.navArea::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-style: solid;
+  border-width: 3px 3px 0 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.prevArea::before {
+  transform: rotate(-135deg);
+  border-color: rgba(255, 255, 255, 0.8);
+  margin-left: 10px;
+}
+
+.nextArea::before {
+  transform: rotate(45deg);
+  border-color: rgba(255, 255, 255, 0.8);
+  margin-right: 10px;
+}
+
+.navArea:hover::before {
   opacity: 1;
 }
 
-.prevButton {
-  left: 20px;
-}
-
-.nextButton {
-  right: 20px;
+/* Hide old navigation buttons */
+.navButton {
+  display: none;
 }
 
 @media (max-width: 1024px) {
   .lightboxContent {
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    overflow-y: auto;
-  }
-
-  .seriesInfo {
-    flex: none;
-    width: 100%;
-    padding-left: 0;
-    padding-top: 20px;
-    justify-content: flex-start;
-  }
-
-  .seriesInfo h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    height: 90vh;
   }
 
   .imageSection {
     width: 100%;
+    height: 70%;
+    min-height: 0;
+  }
+
+  .lightboxImageWrapper {
+    padding: 20px;
   }
 
   .lightboxImage {
-    max-height: 50vh;
+    width: 600px;
+  }
+
+  .seriesInfo {
+    width: 100%;
+    height: 30%;
+    padding: 30px;
   }
 }
 
 @media (max-width: 768px) {
-  .galleryGrid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
+  .lightbox {
+    padding: 0;
+  }
+
+  .lightboxContent {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .imageSection {
+    height: 60%;
+    min-height: 0;
+  }
+
+  .lightboxImageWrapper {
     padding: 20px;
+  }
+
+  .seriesInfo {
+    height: 40%;
+    padding: 20px;
+  }
+
+  .lightboxImage {
+    width: 100%;
+    max-height: 100%;
   }
 
   .navButton {
@@ -233,5 +283,11 @@
     top: 10px;
     right: 10px;
     font-size: 30px;
+  }
+
+  .navArea::before {
+    width: 20px;
+    height: 20px;
+    border-width: 2px 2px 0 0;
   }
 } 

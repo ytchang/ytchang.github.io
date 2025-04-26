@@ -37,11 +37,23 @@ function About() {
         <div className={AboutCSS.textWrapper}>
           <h1>{data.AboutHeading}</h1>
           <p>{data.AboutTextParagraph1}</p>
-          <h1>{data.AboutHeading2}</h1>
-          <p>{data.AboutTextParagraph2}</p>
-          {/* <button onClick={handleClick} className={AboutCSS.contactButton}>
-            {data.AboutButtonText}
-          </button> */}
+          <div className={AboutCSS.contactInfo}>
+            <a 
+              href={`https://instagram.com/${data.InstagramHandle}`} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={AboutCSS.socialLink}
+            >
+              Instagram
+            </a>
+            <span className={AboutCSS.divider}>•</span>
+            <a 
+              href={`mailto:${data.AboutEmail}`} 
+              className={AboutCSS.socialLink}
+            >
+              {data.AboutEmail}
+            </a>
+          </div>
         </div>
       </div>
       <Footer />

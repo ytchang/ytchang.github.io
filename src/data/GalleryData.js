@@ -7,6 +7,14 @@ const galleryData = {
     title: "Out the Cage",
     description: "Fired clay with oil paint. Mixed media."
   },
+  series3: {
+    title: "Series 3",
+    description: "Coming soon"
+  },
+  series4: {
+    title: "Series 4",
+    description: "Coming soon"
+  }
   // Add more series as needed
 };
 
