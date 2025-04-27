@@ -87,7 +87,7 @@
 
 .imageSection {
   position: relative;
-  width: calc(100% - 340px);
+  width: calc(100% - 400px);
   height: 100%;
   display: flex;
   align-items: center;
@@ -101,7 +101,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 20px;
 }
 
 .lightboxImage {
@@ -116,11 +116,11 @@
 .seriesInfo {
   width: 340px;
   height: 100%;
-  padding: 40px;
+  padding: 40px 20px 40px 0;
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   background: rgba(0, 0, 0, 0.8);
 }
 
@@ -136,6 +136,7 @@
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 0;
+  max-width: 100%;
 }
 
 .closeButton {
@@ -265,7 +266,13 @@
 
   .seriesInfo {
     height: 40%;
-    padding: 20px;
+    padding: 30px;
+    justify-content: flex-start;
+  }
+
+  .seriesInfo h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
   }
 
   .lightboxImage {
