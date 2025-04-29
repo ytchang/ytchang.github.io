@@ -323,30 +323,45 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .moreWorksToggle {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  padding: 12px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 15px 30px;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  border-radius: 4px;
-  margin: 20px 0;
+  border-radius: 2px;
+  margin: 40px 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  backdrop-filter: blur(4px);
 }
 
 .moreWorksToggle:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.moreWorksToggle:active {
+  transform: translateY(0);
 }
 
 .moreWorksToggle svg {
   transition: transform 0.3s ease;
+  width: 14px;
+  height: 14px;
+  opacity: 0.8;
 }
 
 .moreWorksToggle.expanded svg {
@@ -357,8 +372,9 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease;
+  width: 100%;
 }
 
 .moreWorksContent.expanded {
-  max-height: 2000px; /* Adjust this value based on your content */
+  max-height: 2000px;
 } 
