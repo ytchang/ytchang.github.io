@@ -1,19 +1,19 @@
 const galleryData = {
   series1: {
     title: "The Fortress",
-    description: "Fired clay with oil paint"
+    description: "\"No door, no key,\n just weight and wall.\"\n\nFired clay with oil paint, 2023\n16 x 12 x 11 inches"
   },
   series2: {
     title: "Out the Cage",
-    description: "Fired clay with oil paint. Mixed media."
+    description: "Ceramics with mixed media, 2024\n21 x 8 x 8 inches"
   },
   series3: {
-    title: "Series 3",
-    description: "Coming soon"
+    title: "Not Alone",
+    description: "Ceramics with acrylics, 2025\n8 x 6 x 5 inches."
   },
   series4: {
-    title: "Series 4",
-    description: "Coming soon"
+    title: "Balance!",
+    description: "Ceramics with mixed media, 2024\n21 x 11 x 11 inches."
   }
   // Add more series as needed
 };
