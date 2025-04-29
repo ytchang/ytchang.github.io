@@ -7,7 +7,7 @@ import data from "../Data";
 // Dynamically import the profile image
 const importAll = (r) => r.keys().map(r);
 const images = importAll(
-  require.context("../assets/profile", false, /\.(webp|png|jpg|jpeg|gif)$/)
+  require.context("../assets/profile", false, /\.(webp|png|jpe?g|JPG|gif)$/i)
 );
 
 const profileImage = images.length > 0 ? images[0] : null;
