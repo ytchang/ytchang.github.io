@@ -1,30 +1,31 @@
 {
   "files": {
-    "main.css": "/static/css/main.5e193ba1.css",
-    "main.js": "/static/js/main.2af641fc.js",
+    "main.css": "/static/css/main.ba26a2bc.css",
+    "main.js": "/static/js/main.fefa2866.js",
     "static/js/453.fd663ea2.chunk.js": "/static/js/453.fd663ea2.chunk.js",
     "static/media/2.jpg": "/static/media/2.27aee9bbb75da767538b.jpg",
     "static/media/1.jpg": "/static/media/1.cc7050f53c8c3196936d.jpg",
     "static/media/397A1655-blur-background.jpg": "/static/media/397A1655-blur-background.271ad73f013e993903c0.jpg",
     "static/media/cover.jpg": "/static/media/cover.a7c9324d5e4fe5181333.jpg",
+    "static/media/4.jpg": "/static/media/4.bd589f9c1975878632d7.jpg",
     "static/media/IMG_0565.JPG": "/static/media/IMG_0565.2daf58a39130934f34d6.JPG",
     "static/media/out_the_cage_yun-tzu_chang.jpg": "/static/media/out_the_cage_yun-tzu_chang.a6767d5db340e7bad64a.jpg",
-    "static/media/IMG_3292.JPG": "/static/media/IMG_3292.eca8feb170dd10e5d1bc.JPG",
+    "static/media/2.JPG": "/static/media/2.eca8feb170dd10e5d1bc.JPG",
     "static/media/IMG_0568.JPG": "/static/media/IMG_0568.1f40259aca8bb91eddfc.JPG",
     "static/media/cover.JPG": "/static/media/cover.f136c3e1b73924ac0bb2.JPG",
-    "static/media/IMG_3281.JPG": "/static/media/IMG_3281.9b9115b9dced3b09b40d.JPG",
-    "static/media/IMG_3271.JPG": "/static/media/IMG_3271.8bc038c82ff23757b2fa.JPG",
+    "static/media/3.JPG": "/static/media/3.9b9115b9dced3b09b40d.JPG",
+    "static/media/1.JPG": "/static/media/1.2e8014bd9cf42d18cfc0.JPG",
     "static/media/IMG_3270.JPG": "/static/media/IMG_3270.c5a75ee7c84f75a25012.JPG",
     "static/media/IMG_2061.jpg": "/static/media/IMG_2061.a23eadea0ccb7d184972.jpg",
     "static/media/profile.jpg": "/static/media/profile.6a93561e6fd9336efe12.jpg",
     "static/media/404.svg": "/static/media/404.f7a1746b6c32d82a3f32c77fc778e768.svg",
     "index.html": "/index.html",
-    "main.5e193ba1.css.map": "/static/css/main.5e193ba1.css.map",
-    "main.2af641fc.js.map": "/static/js/main.2af641fc.js.map",
+    "main.ba26a2bc.css.map": "/static/css/main.ba26a2bc.css.map",
+    "main.fefa2866.js.map": "/static/js/main.fefa2866.js.map",
     "453.fd663ea2.chunk.js.map": "/static/js/453.fd663ea2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5e193ba1.css",
-    "static/js/main.2af641fc.js"
+    "static/css/main.ba26a2bc.css",
+    "static/js/main.fefa2866.js"
   ]
 }
