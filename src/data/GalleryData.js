@@ -14,6 +14,14 @@ const galleryData = {
   series4: {
     title: "Balance!",
     description: "Ceramics with mixed media, 2024\n21 x 11 x 11 inches."
+  },
+  series5: {
+    title: "Egg",
+    description: "Porcelain, 2024\n3 x 3 x 3 inches"
+  },
+  series6: {
+    title: "Drowned",
+    description: "Ceramics, 2024\n6 x 3 x 3 inches"
   }
   // Add more series as needed
 };

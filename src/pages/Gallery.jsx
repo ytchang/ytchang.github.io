@@ -39,6 +39,15 @@ const { coverImages, seriesImages } = importAllImages(
 function Gallery() {
   const [selectedSeries, setSelectedSeries] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isMoreWorksExpanded, setIsMoreWorksExpanded] = useState(false);
+  
+  // Filter series for main gallery and more works
+  const mainGallerySeries = Object.entries(coverImages).filter(([seriesName]) => 
+    ['series1', 'series2', 'series3'].includes(seriesName)
+  );
+  const moreWorksSeries = Object.entries(coverImages).filter(([seriesName]) => 
+    ['series4', 'series5', 'series6'].includes(seriesName)
+  );
   
   const openLightbox = (series) => {
     console.log('Opening series:', series); // Debug log
@@ -88,7 +97,7 @@ function Gallery() {
     <div className={GalleryCSS.container}>
       <Header />
       <div className={GalleryCSS.galleryGrid}>
-        {Object.entries(coverImages).map(([seriesName, coverSrc], index) => (
+        {mainGallerySeries.map(([seriesName, coverSrc], index) => (
           <motion.div
             key={seriesName}
             className={GalleryCSS.imageContainer}
@@ -115,6 +124,49 @@ function Gallery() {
             </div>
           </motion.div>
         ))}
+      </div>
+
+      <div className={GalleryCSS.moreWorksSection}>
+        <button 
+          className={`${GalleryCSS.moreWorksToggle} ${isMoreWorksExpanded ? GalleryCSS.expanded : ''}`}
+          onClick={() => setIsMoreWorksExpanded(!isMoreWorksExpanded)}
+        >
+          More Works
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        <div className={`${GalleryCSS.moreWorksContent} ${isMoreWorksExpanded ? GalleryCSS.expanded : ''}`}>
+          <div className={GalleryCSS.galleryGrid}>
+            {moreWorksSeries.map(([seriesName, coverSrc], index) => (
+              <motion.div
+                key={seriesName}
+                className={GalleryCSS.imageContainer}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ 
+                  duration: 0.8,
+                  delay: index * 0.2,
+                  ease: "easeOut"
+                }}
+                onClick={() => openLightbox(seriesName)}
+              >
+                <div className={GalleryCSS.imageWrapper}>
+                  <img
+                    src={coverSrc}
+                    alt={`${galleryData[seriesName]?.title || seriesName}`}
+                    className={GalleryCSS.image}
+                    loading="lazy"
+                  />
+                  <div className={GalleryCSS.seriesTitle}>
+                    {galleryData[seriesName]?.title || seriesName}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {selectedSeries && (

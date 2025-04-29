@@ -316,4 +316,49 @@
     height: 20px;
     border-width: 2px 2px 0 0;
   }
+}
+
+.moreWorksSection {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.moreWorksToggle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.moreWorksToggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.moreWorksToggle svg {
+  transition: transform 0.3s ease;
+}
+
+.moreWorksToggle.expanded svg {
+  transform: rotate(180deg);
+}
+
+.moreWorksContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.moreWorksContent.expanded {
+  max-height: 2000px; /* Adjust this value based on your content */
 } 
