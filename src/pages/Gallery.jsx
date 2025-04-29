@@ -131,6 +131,9 @@ function Gallery() {
                   alt={`${galleryData[selectedSeries]?.title || selectedSeries} - Image ${currentImageIndex + 1}`}
                   className={GalleryCSS.lightboxImage}
                 />
+                <div className={GalleryCSS.positionIndicator}>
+                  {currentImageIndex + 1} / {seriesImages[selectedSeries].length}
+                </div>
               </div>
               <div 
                 className={`${GalleryCSS.navArea} ${GalleryCSS.nextArea}`}
@@ -152,4 +155,4 @@ function Gallery() {
   );
 }
 
-export default Gallery; 
+export default Gallery;
