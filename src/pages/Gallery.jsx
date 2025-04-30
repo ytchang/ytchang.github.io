@@ -86,10 +86,11 @@ function Gallery() {
   };
 
   const handleTouchMove = (e) => {
+    e.preventDefault(); // Only prevent default during the actual swipe
     setTouchEnd(e.targetTouches[0].clientX);
   };
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = (e) => {
     if (!touchStart || !touchEnd) return;
     
     const distance = touchStart - touchEnd;
@@ -97,8 +98,10 @@ function Gallery() {
     const isRightSwipe = distance < -50;
 
     if (isLeftSwipe) {
+      e.preventDefault(); // Prevent default only if it's a swipe
       goToNext();
     } else if (isRightSwipe) {
+      e.preventDefault(); // Prevent default only if it's a swipe
       goToPrevious();
     }
 
@@ -204,6 +207,7 @@ function Gallery() {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
+            style={{ touchAction: 'pan-y' }}
           >
             <div className={GalleryCSS.imageSection}>
               <div 
