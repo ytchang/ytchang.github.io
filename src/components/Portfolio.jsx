@@ -23,6 +23,8 @@ function Portfolio() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   // Preload images on component mount
   useEffect(() => {
@@ -88,6 +90,31 @@ function Portfolio() {
     navigate('/gallery');
   };
 
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      handleNext();
+    } else if (isRightSwipe) {
+      handlePrevious();
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
   return (
     <>
       <div className={PortfolioCSS.slideshowBackground}>
@@ -97,6 +124,9 @@ function Portfolio() {
           style={{ cursor: 'pointer' }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           <div 
             className={`${PortfolioCSS.navArea} ${PortfolioCSS.prevArea}`}

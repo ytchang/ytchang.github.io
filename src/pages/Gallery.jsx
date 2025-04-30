@@ -40,6 +40,8 @@ function Gallery() {
   const [selectedSeries, setSelectedSeries] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMoreWorksExpanded, setIsMoreWorksExpanded] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
   
   // Filter series for main gallery and more works
   const mainGallerySeries = Object.entries(coverImages).filter(([seriesName]) => 
@@ -77,6 +79,31 @@ function Gallery() {
         (prev - 1 + seriesImages[selectedSeries].length) % seriesImages[selectedSeries].length
       );
     }
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrevious();
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
   };
 
   // Handle keyboard navigation
@@ -171,7 +198,13 @@ function Gallery() {
 
       {selectedSeries && (
         <div className={GalleryCSS.lightbox} onClick={closeLightbox}>
-          <div className={GalleryCSS.lightboxContent} onClick={(e) => e.stopPropagation()}>
+          <div 
+            className={GalleryCSS.lightboxContent} 
+            onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div className={GalleryCSS.imageSection}>
               <div 
                 className={`${GalleryCSS.navArea} ${GalleryCSS.prevArea}`}
