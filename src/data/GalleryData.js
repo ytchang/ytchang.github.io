@@ -1,7 +1,7 @@
 const galleryData = {
   series1: {
     title: "The Fortress",
-    description: "\"No door, no key,\n just weight and wall.\"\n\nFired clay with oil paint, 2023\n16 x 12 x 11 inches"
+    description: "Fired clay with oil paint, 2023\n16 x 12 x 11 inches"
   },
   series2: {
     title: "Out the Cage",
