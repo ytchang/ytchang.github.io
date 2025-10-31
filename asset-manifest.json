@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.178d7fde.css",
-    "main.js": "/static/js/main.3e95eb18.js",
+    "main.js": "/static/js/main.0f429a47.js",
     "static/js/453.fd663ea2.chunk.js": "/static/js/453.fd663ea2.chunk.js",
     "static/media/3.jpg": "/static/media/3.67cca044319dd8346c28.jpg",
     "static/media/1.JPG": "/static/media/1.42d2eb32f02c9e78ac6a.JPG",
     "static/media/2.JPG": "/static/media/2.000bf94cb9f61a3eed54.JPG",
-    "static/media/IMG_3549 (1).JPG": "/static/media/IMG_3549 (1).de395c25dd333647de29.JPG",
-    "static/media/IMG_3708 (1).JPG": "/static/media/IMG_3708 (1).d6a75e19d2f22dbbf5dd.JPG",
+    "static/media/Out_the_Cage_detail.JPG": "/static/media/Out_the_Cage_detail.de395c25dd333647de29.JPG",
+    "static/media/IMG_3708.JPG": "/static/media/IMG_3708.d6a75e19d2f22dbbf5dd.JPG",
     "static/media/IMG_3755.JPG": "/static/media/IMG_3755.e826a05b924b680b5c33.JPG",
     "static/media/IMG_2255.JPG": "/static/media/IMG_2255.c156559b8d7b957e7d30.JPG",
     "static/media/IMG_3750.JPG": "/static/media/IMG_3750.9b11b4c4d5c03339f815.JPG",
@@ -28,11 +28,11 @@
     "static/media/404.svg": "/static/media/404.f7a1746b6c32d82a3f32c77fc778e768.svg",
     "index.html": "/index.html",
     "main.178d7fde.css.map": "/static/css/main.178d7fde.css.map",
-    "main.3e95eb18.js.map": "/static/js/main.3e95eb18.js.map",
+    "main.0f429a47.js.map": "/static/js/main.0f429a47.js.map",
     "453.fd663ea2.chunk.js.map": "/static/js/453.fd663ea2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.178d7fde.css",
-    "static/js/main.3e95eb18.js"
+    "static/js/main.0f429a47.js"
   ]
 }
