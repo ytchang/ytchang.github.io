@@ -10,9 +10,9 @@ const Data = {
   AboutTextParagraph2: "I create sculptures that give form to internal tension—conflicts between freedom and restraint, connection and solitude. My figures, inspired by live models or imagined characters, shift into surreal forms that visualize psychological states. Abstraction allows me to express what the figure alone can't—confining walls, openings that suggest escape, spaces that unsettle. I aim to raise questions, inviting reflection without offering answers.",
   AboutButtonText: "Say Hey!",
   // Social Media
-  InstagramHandle: "belleislecrafts", // Replace with your actual Instagram handle
+  InstagramHandle: "ychang_art", // Replace with your actual Instagram handle
   SocialLinks: {
-    instagram: "https://www.instagram.com/belleislecrafts/", // Replace with your actual Instagram URL
+    instagram: "https://www.instagram.com/ychang_art/", // Replace with your actual Instagram URL
     email: "yuntz.c@gmail.com"
   }
 };
