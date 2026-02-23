@@ -48,7 +48,7 @@ function Gallery() {
     ['series1', 'series2', 'series3'].includes(seriesName)
   );
   const moreWorksSeries = Object.entries(coverImages).filter(([seriesName]) => 
-    ['series4', 'series5', 'series6'].includes(seriesName)
+    ['series4', 'series5', 'series6', 'series7'].includes(seriesName)
   );
   
   const openLightbox = (series) => {

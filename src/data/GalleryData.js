@@ -9,7 +9,7 @@ const galleryData = {
   },
   series3: {
     title: "Not Alone",
-    description: "Ceramics with acrylics, 2025\n8 x 6 x 5 inches."
+    description: "Ceramics with acrylic paint, 2025\n8 x 6 x 5 inches."
   },
   series4: {
     title: "Balance!",
@@ -22,7 +22,12 @@ const galleryData = {
   series6: {
     title: "Drowned",
     description: "Ceramics, 2024\n6 x 3 x 3 inches"
+  },
+  series7: {
+    title: "Lift",
+    description: "Ceramics with acrylic paint, 2025\n5 x 5 x 1 inches"
   }
+
   // Add more series as needed
 };
 
