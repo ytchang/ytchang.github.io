@@ -89,9 +89,10 @@ function Gallery() {
               decoding="async"
               fetchPriority={eagerFirst && index === 0 ? "high" : "low"}
             />
-            <div className={GalleryCSS.seriesTitle}>
+            {galleryData[seriesName]?.title && 
+            (<div className={GalleryCSS.seriesTitle}>
               {galleryData[seriesName]?.title }
-            </div>
+            </div>)}
           </div>
         </motion.div>
       ))}
