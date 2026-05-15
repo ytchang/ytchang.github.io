@@ -5,14 +5,26 @@
   background: #000;
 }
 
-.galleryGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 40px 20px;
-  max-width: 1400px;
-  margin: 0 auto;
+/* Centered column: max width = three thumb tracks + gaps + horizontal padding */
+.galleryColumn {
+  --gallery-thumb-gap: 14px;
+  --gallery-thumb-min: 15.75rem;
   width: 100%;
+  max-width: min(
+    100%,
+    calc(3 * var(--gallery-thumb-min) + 2 * var(--gallery-thumb-gap) + 40px)
+  );
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.mainGallerySection {
+  width: 100%;
+  padding: clamp(3.5rem, 10vmin, 6rem) 0 clamp(2rem, 6vmin, 3rem);
+  box-sizing: border-box;
 }
 
 .imageContainer {
@@ -318,63 +330,43 @@
   }
 }
 
-.moreWorksSection {
+.moreWorksSection,
+.inProgressGallery {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 0 60px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 
-.moreWorksToggle {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.8);
-  padding: 15px 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 2px;
-  margin: 40px 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  letter-spacing: 1px;
+.moreWorksHeading {
+  margin: 0 0 20px;
+  padding-top: 8px;
+  font-size: 1.1rem;
   font-weight: 300;
-  backdrop-filter: blur(4px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.moreWorksToggle:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.4);
-  color: white;
-  transform: translateY(-1px);
-}
-
-.moreWorksToggle:active {
-  transform: translateY(0);
-}
-
-.moreWorksToggle svg {
-  transition: transform 0.3s ease;
-  width: 14px;
-  height: 14px;
-  opacity: 0.8;
-}
-
-.moreWorksToggle.expanded svg {
-  transform: rotate(180deg);
-}
-
-.moreWorksContent {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
+/* Wraps by width; column max-width fits exactly three min tiles + gaps + padding */
+.moreWorksGrid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(var(--gallery-thumb-min), 100%), 1fr)
+  );
+  gap: var(--gallery-thumb-gap);
   width: 100%;
 }
 
-.moreWorksContent.expanded {
-  max-height: 2000px;
-} 
+.moreWorksItem {
+  aspect-ratio: 1;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  border-radius: 3px;
+}
+ 
