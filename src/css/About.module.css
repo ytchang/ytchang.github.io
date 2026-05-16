@@ -50,6 +50,15 @@
     display: inline-block;
 }
 
+.textWrapper h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 2px;
+    position: relative;
+}
+
 .textWrapper h1::after {
     content: '';
     position: absolute;
@@ -106,6 +115,8 @@
     }
 
     .imageWrapper {
+        position: relative;
+        top: -300px;
         margin-right: 60px;
         margin-bottom: 0;
     }
