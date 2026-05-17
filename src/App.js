@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
+import Studies from "./pages/Studies";
 import NotFound from "./pages/NotFound";
 import Upload from "./pages/Upload";
 
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/studies" element={<Studies />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/upload" element={<Upload />} />
         </Routes>

@@ -1,0 +1,372 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+}
+
+/* Centered column: max width = three thumb tracks + gaps + horizontal padding */
+.galleryColumn {
+  --gallery-thumb-gap: 14px;
+  --gallery-thumb-min: 15.75rem;
+  width: 100%;
+  max-width: min(
+    100%,
+    calc(3 * var(--gallery-thumb-min) + 2 * var(--gallery-thumb-gap) + 40px)
+  );
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.mainGallerySection {
+  width: 100%;
+  padding: clamp(3.5rem, 10vmin, 6rem) 0 clamp(2rem, 6vmin, 3rem);
+  box-sizing: border-box;
+}
+
+.imageContainer {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background: #111;
+  border-radius: 4px;
+  aspect-ratio: 1;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.seriesTitle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.imageContainer:hover .seriesTitle {
+  transform: translateY(0);
+}
+
+.imageContainer:hover .image {
+  transform: scale(1.05);
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.lightboxContent {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  height: 85vh;
+  max-width: 1600px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+}
+
+.imageSection {
+  position: relative;
+  width: calc(100% - 400px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.lightboxImageWrapper {
+  width: 100%;
+  height: calc(100% - 40px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 20px 20px 20px;
+  position: relative;
+}
+
+.lightboxImage {
+  width: 800px;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100% - 20px);
+  object-fit: contain;
+  display: block;
+}
+
+.positionIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.seriesInfo {
+  width: 340px;
+  height: 100%;
+  padding: 40px 20px 40px 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.seriesInfo h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.seriesInfo p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.closeButton {
+  position: fixed;
+  top: 20px;
+  right: 80px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 10000;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.3s, background-color 0.3s;
+  border-radius: 50%;
+}
+
+.closeButton:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.navArea {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 40%;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.prevArea {
+  left: 0;
+}
+
+.nextArea {
+  right: 0;
+}
+
+.navArea::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-style: solid;
+  border-width: 3px 3px 0 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.prevArea::before {
+  transform: rotate(-135deg);
+  border-color: rgba(255, 255, 255, 0.8);
+  margin-left: 10px;
+}
+
+.nextArea::before {
+  transform: rotate(45deg);
+  border-color: rgba(255, 255, 255, 0.8);
+  margin-right: 10px;
+}
+
+.navArea:hover::before {
+  opacity: 1;
+}
+
+/* Hide old navigation buttons */
+.navButton {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .lightboxContent {
+    flex-direction: column;
+    height: 90vh;
+  }
+
+  .imageSection {
+    width: 100%;
+    height: 70%;
+    min-height: 0;
+  }
+
+  .lightboxImageWrapper {
+    padding: 20px;
+  }
+
+  .lightboxImage {
+    width: 600px;
+  }
+
+  .seriesInfo {
+    width: 100%;
+    height: 30%;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lightbox {
+    padding: 0;
+  }
+
+  .lightboxContent {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .imageSection {
+    height: 60%;
+    min-height: 0;
+  }
+
+  .lightboxImageWrapper {
+    padding: 20px;
+  }
+
+  .seriesInfo {
+    height: 40%;
+    padding: 30px;
+    justify-content: flex-start;
+  }
+
+  .seriesInfo h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+
+  .lightboxImage {
+    width: 100%;
+    max-height: 100%;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .closeButton {
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+  }
+
+  .navArea::before {
+    width: 20px;
+    height: 20px;
+    border-width: 2px 2px 0 0;
+  }
+}
+
+.moreWorksSection,
+.inProgressGallery {
+  width: 100%;
+  padding: 0 0 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.moreWorksHeading {
+  margin: 0 0 20px;
+  padding-top: 8px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Wraps by width; column max-width fits exactly three min tiles + gaps + padding */
+.moreWorksGrid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(var(--gallery-thumb-min), 100%), 1fr)
+  );
+  gap: var(--gallery-thumb-gap);
+  width: 100%;
+}
+
+.moreWorksItem {
+  aspect-ratio: 1;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  border-radius: 3px;
+}
+ 
