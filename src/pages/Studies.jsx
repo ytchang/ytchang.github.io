@@ -189,7 +189,7 @@ function Gallery() {
         {/*</div>*/}
 
         <div className={GalleryCSS.inProgressGallery}>
-          <h2 className={GalleryCSS.moreWorksHeading}>Figure and Portrait Live Studies</h2>
+          <h2 className={GalleryCSS.moreWorksHeading}>Studies From Live</h2>
           {renderMoreWorksStyleGrid(inProgressSeries)}
         </div>
       </div>

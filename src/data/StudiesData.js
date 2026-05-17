@@ -1,22 +1,22 @@
 const galleryData = {
   study_1_smile: {
-    title: "",
+    title: "Expressive Portrait Workshop",
     description: ""
   },
   study_2_3h_p: {
-    title: "",
+    title: "3 Hour Portrait Study",
     description: ""
   },
   study_3_3h_p: {
-    title: "",
+    title: "3 Hour Portrait Study",
     description: ""
   },
   study_4_snake: {
-    title: "",
+    title: "Figure Study",
     description: ""
   },
   study_5_f: {
-    title: "",
+    title: "Figure Study",
     description: ""
   }
 };
