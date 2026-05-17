@@ -38,18 +38,18 @@ function About() {
           <h1>{data.AboutHeading}</h1>
           <p>{data.AboutTextParagraph1}</p>
           <div className={"cv"}>
-          <h1>CV</h1>
-            <h2>Exhibitions</h2>
+          {/*<h1>CV</h1>*/}
+            <h1>Exhibitions</h1>
             <p>
             2026   ICON (Juried Exhibition) —  <b>Strong Voice in Art Award</b>, Lynn Hanson Gallery, Seattle, WA<br />
             2026   BOLD HERITAGE (Invitational Group Exhibition), SlipStitch Studio, Seattle, WA<br />
             2026   PUBLIC/PRIVATE (Juried Exhibition), SlipStitch Studio, Seattle, WA<br />
             2025   Visual Impressions (Juried Exhibition), Ryan James Fine Arts, Kirkland, WA<br />
             </p>
-            <h2>Early Showcases</h2>
-            <p>
-            2012–2014   Wonder Festival (International Character Sculpture Event), Tokyo, Japan<br />
-            </p>
+            {/*<h2>Early Showcases</h2>*/}
+            {/*<p>*/}
+            {/*2012–2014   Wonder Festival (International Character Sculpture Event), Tokyo, Japan<br />*/}
+            {/*</p>*/}
             {/*<h2>Education & Training</h2>*/}
             {/*<p>*/}
             {/*2025   Experimental Approaches to Color – Zoey Frank (Online)<br />*/}
@@ -59,11 +59,11 @@ function About() {
             {/*2018   Sculpting Expressive Faces – Tip Toland, Gage Academy of Art<br />*/}
             {/*2014–2016   Fine Art Coursework: Life-Size Sculpture, Metal & Jewelry, Ceramics 101, University of Michigan<br />*/}
             {/*</p>*/}
-            <h2>Academic Background</h2>
-            <p>
-            2014–2017   M.S. in Mechanical & Electrical Engineering, University of Michigan, Ann Arbor, MI<br />
-            2010–2014   B.S. in Mechanical Engineering, National Taiwan University, Taipei, Taiwan<br />
-            </p>
+            {/*<h2>Academic Background</h2>*/}
+            {/*<p>*/}
+            {/*2014–2017   M.S. in Mechanical & Electrical Engineering, University of Michigan, Ann Arbor, MI<br />*/}
+            {/*2010–2014   B.S. in Mechanical Engineering, National Taiwan University, Taipei, Taiwan<br />*/}
+            {/*</p>*/}
           </div>
           <div className={AboutCSS.contactInfo}>
             <a 
