@@ -45,11 +45,11 @@ function Gallery() {
     ['s1_fortress', 's2_cage', 's3_notalone'].includes(seriesName)
   );
   const moreWorksSeries = Object.entries(coverImages).filter(([seriesName]) => 
-    ['s4_balance', 's5_egg', 's6_drowned', 's7_lift', 's9_puppeteer', 's8_seer'
+    ['s4_balance', 's13_happyfeet', 's5_egg', 's6_drowned', 's7_lift', 's9_puppeteer', 's8_seer'
     ].includes(seriesName)
   );
   const inProgressSeries = Object.entries(coverImages).filter(([seriesName]) =>
-    ['s10_daydreamer', 's11_darkness', 's12_pretty'].includes(seriesName)
+    ['s10_daydreamer', 's11_darkness'].includes(seriesName)
   );
 
   const openLightbox = (series) => {

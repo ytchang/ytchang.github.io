@@ -19,6 +19,10 @@ const galleryData = {
     title: "Egg",
     description: "Porcelain, 2024\n3 x 3 x 3 inches"
   },
+  s13_happyfeet: {
+    title: "'Aren't I pretty?'",
+    description: "Ceramics with acrylic paint, 2026\n6 x 3 x 3 inches"
+  },
   s6_drowned: {
     title: "Drowned",
     description: "Ceramics, 2024\n6 x 3 x 3 inches"
@@ -43,10 +47,6 @@ const galleryData = {
     title: "",
     description: ""
   },
-  s12_pretty: {
-    title: "",
-    description: ""
-  }
 };
 
 export default galleryData; 
