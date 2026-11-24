@@ -40,10 +40,11 @@
 .hamburger {
     cursor: pointer;
     z-index: 1001;
+    flex-shrink: 0;
 }
 
 .nav {
-    display: flex;
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 58px;
@@ -55,13 +56,11 @@
     padding: 8px 0;
     justify-content: center;
     align-items: center;
-    transform: translateX(calc(100% + 20px));
-    transition: transform 0.3s ease-in-out;
     z-index: 999;
 }
 
 .navOpen {
-    transform: translateX(0);
+    display: flex;
 }
 
 .nav ul {
@@ -129,6 +128,7 @@
     }
 
     .nav {
+        display: flex;
         position: static;
         flex-direction: row;
         width: auto;
@@ -136,8 +136,6 @@
         height: auto;
         background-color: transparent;
         padding: 0;
-        transform: none;
-        transition: none;
         z-index: auto;
     }
 
