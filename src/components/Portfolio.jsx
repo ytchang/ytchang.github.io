@@ -9,7 +9,13 @@ const importAll = (r) => r.keys().map(r);
 const images = importAll(
   require.context("../assets/slideshow", false, /\.(webp|png|jpe?g|gif)$/i)
 );
+const workImageContext = require.context(
+  "../assets/images",
+  true,
+  /\.(webp|png|jpe?g|gif)$/i
+);
 const studiesFeatureImage = require("../assets/images/study_1_smile/cover.jpg");
+let workImagePreloadStarted = false;
 
 // Preload images for smoother transitions
 const preloadImages = () => {
@@ -17,6 +23,41 @@ const preloadImages = () => {
     const img = new Image();
     img.src = src;
   });
+};
+
+const preloadWorkImages = () => {
+  if (workImagePreloadStarted || navigator.connection?.saveData) return;
+  workImagePreloadStarted = true;
+
+  const imagePaths = workImageContext.keys().sort((a, b) => {
+    const aIsCover = a.toLowerCase().includes("cover.");
+    const bIsCover = b.toLowerCase().includes("cover.");
+    return Number(bIsCover) - Number(aIsCover);
+  });
+  let nextImageIndex = 0;
+
+  const scheduleNextImage = () => {
+    if (nextImageIndex >= imagePaths.length) return;
+
+    const loadNextImage = () => {
+      const img = new Image();
+      img.fetchPriority = "low";
+      img.decoding = "async";
+      img.onload = scheduleNextImage;
+      img.onerror = scheduleNextImage;
+      img.src = workImageContext(imagePaths[nextImageIndex]);
+      nextImageIndex += 1;
+    };
+
+    if (window.requestIdleCallback) {
+      window.requestIdleCallback(loadNextImage, { timeout: 2000 });
+    } else {
+      window.setTimeout(loadNextImage, 200);
+    }
+  };
+
+  scheduleNextImage();
+  scheduleNextImage();
 };
 
 function Portfolio() {
@@ -30,6 +71,7 @@ function Portfolio() {
   // Preload images on component mount
   useEffect(() => {
     preloadImages();
+    preloadWorkImages();
   }, []);
 
   // Auto-rotate slideshow every 5 seconds
