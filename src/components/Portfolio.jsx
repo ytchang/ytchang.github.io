@@ -9,6 +9,7 @@ const importAll = (r) => r.keys().map(r);
 const images = importAll(
   require.context("../assets/slideshow", false, /\.(webp|png|jpe?g|gif)$/i)
 );
+const studiesFeatureImage = require("../assets/images/study_1_smile/cover.jpg");
 
 // Preload images for smoother transitions
 const preloadImages = () => {
@@ -188,6 +189,24 @@ function Portfolio() {
           </div>
         </div>
       </motion.div>
+
+      <div className={PortfolioCSS.studiesFeatureBackground}>
+        <button
+          type="button"
+          className={PortfolioCSS.studiesFeature}
+          onClick={() => navigate("/studies")}
+          aria-label="View figure studies"
+        >
+          <img
+            src={studiesFeatureImage}
+            alt="Figure study"
+            className={PortfolioCSS.image}
+            loading="lazy"
+            decoding="async"
+          />
+          <span className={PortfolioCSS.studiesFeatureLabel}>Figure Studies</span>
+        </button>
+      </div>
     </>
   );
 }
