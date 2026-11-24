@@ -41,10 +41,11 @@ function About() {
           {/*<h1>CV</h1>*/}
             <h1>Exhibitions</h1>
             <p>
-            2026   ICON (Juried Exhibition) —  <b>Strong Voice in Art Award</b>, Lynn Hanson Gallery, Seattle, WA<br />
-            2026   BOLD HERITAGE (Invitational Group Exhibition), SlipStitch Studio, Seattle, WA<br />
-            2026   PUBLIC/PRIVATE (Juried Exhibition), SlipStitch Studio, Seattle, WA<br />
-            2025   Visual Impressions (Juried Exhibition), Ryan James Fine Arts, Kirkland, WA<br />
+            2026   Arts of the Terrace (Juried) —  <b>3 Dimensional - First Place</b>, Mountlake Terrace, WA<br />
+            2026   ICON (Juried) —  <b>Strong Voice in Art Award</b>, Lynn Hanson Gallery, Seattle, WA<br />
+            2026   BOLD HERITAGE (Invitational), SlipStitch Studio, Seattle, WA<br />
+            2026   PUBLIC/PRIVATE (Juried), SlipStitch Studio, Seattle, WA<br />
+            2025   Visual Impressions (Juried), Ryan James Fine Arts, Kirkland, WA<br />
             </p>
             {/*<h2>Early Showcases</h2>*/}
             {/*<p>*/}
