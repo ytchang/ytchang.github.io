@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
@@ -35,7 +36,9 @@ const { coverImages, seriesImages } = importAllImages(
 );
 
 function Gallery() {
-  const [selectedSeries, setSelectedSeries] = useState(null);
+  const { seriesName } = useParams();
+  const navigate = useNavigate();
+  const selectedSeries = seriesImages[seriesName] ? seriesName : null;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -52,17 +55,17 @@ function Gallery() {
     ['s10_daydreamer', 's11_darkness'].includes(seriesName)
   );
 
-  const openLightbox = (series) => {
-    setSelectedSeries(series);
-    setCurrentImageIndex(0);
-    document.body.style.overflow = 'hidden';
-  };
+  const openWork = useCallback((series) => {
+    navigate(`/gallery/${series}`);
+  }, [navigate]);
 
-  const closeLightbox = () => {
-    setSelectedSeries(null);
+  const returnToGallery = useCallback(() => {
+    navigate("/gallery");
+  }, [navigate]);
+
+  useEffect(() => {
     setCurrentImageIndex(0);
-    document.body.style.overflow = 'auto';
-  };
+  }, [selectedSeries]);
 
   const renderMoreWorksStyleGrid = (entries, { eagerFirst = false } = {}) => (
     <div className={GalleryCSS.moreWorksGrid}>
@@ -78,7 +81,7 @@ function Gallery() {
             delay: index * 0.2,
             ease: "easeOut"
           }}
-          onClick={() => openLightbox(seriesName)}
+          onClick={() => openWork(seriesName)}
         >
           <div className={GalleryCSS.imageWrapper}>
             <img
@@ -99,21 +102,21 @@ function Gallery() {
     </div>
   );
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     if (selectedSeries) {
       setCurrentImageIndex((prev) => 
         (prev + 1) % seriesImages[selectedSeries].length
       );
     }
-  };
+  }, [selectedSeries]);
 
-  const goToPrevious = () => {
+  const goToPrevious = useCallback(() => {
     if (selectedSeries) {
       setCurrentImageIndex((prev) => 
         (prev - 1 + seriesImages[selectedSeries].length) % seriesImages[selectedSeries].length
       );
     }
-  };
+  }, [selectedSeries]);
 
   const handleTouchStart = (e) => {
     setTouchStart(e.targetTouches[0].clientX);
@@ -149,13 +152,13 @@ function Gallery() {
       if (selectedSeries) {
         if (e.key === 'ArrowRight') goToNext();
         if (e.key === 'ArrowLeft') goToPrevious();
-        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'Escape') returnToGallery();
       }
     };
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [selectedSeries]);
+  }, [selectedSeries, goToNext, goToPrevious, returnToGallery]);
 
   // Warm-cache prev/next lightbox slides so navigation stays instant
   useEffect(() => {
@@ -178,41 +181,29 @@ function Gallery() {
   return (
     <div className={GalleryCSS.container}>
       <Header />
-      <div className={GalleryCSS.galleryColumn}>
-        <div className={GalleryCSS.mainGallerySection}>
-          {renderMoreWorksStyleGrid(mainGallerySeries, { eagerFirst: true })}
-        </div>
-
-        <div className={GalleryCSS.moreWorksSection}>
-          {/* <h2 className={GalleryCSS.moreWorksHeading}>Additional Works</h2> */}
-          {renderMoreWorksStyleGrid(moreWorksSeries)}
-        </div>
-
-        <div className={GalleryCSS.inProgressGallery}>
-          <h2 className={GalleryCSS.moreWorksHeading}>In Progress</h2>
-          {renderMoreWorksStyleGrid(inProgressSeries)}
-        </div>
-      </div>
-
-      {selectedSeries && (
-        <div className={GalleryCSS.lightbox} onClick={closeLightbox}>
+      {selectedSeries ? (
+        <main className={GalleryCSS.detailPage}>
+          <Link className={GalleryCSS.backLink} to="/gallery">
+            ← Back to Gallery
+          </Link>
           <div 
-            className={GalleryCSS.lightboxContent} 
-            onClick={(e) => e.stopPropagation()}
+            className={GalleryCSS.lightboxContent}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
             style={{ touchAction: 'pan-y' }}
           >
             <div className={GalleryCSS.imageSection}>
-              <div 
+              <button
+                type="button"
                 className={`${GalleryCSS.navArea} ${GalleryCSS.prevArea}`}
                 onClick={goToPrevious}
+                aria-label="Previous image"
               />
               <div className={GalleryCSS.lightboxImageWrapper}>
                 <img
                   src={seriesImages[selectedSeries][currentImageIndex]}
-                  alt={`${galleryData[selectedSeries]?.title || selectedSeries} - Image ${currentImageIndex + 1}`}
+                  alt={`${galleryData[selectedSeries]?.title || selectedSeries} (${currentImageIndex + 1})`}
                   className={GalleryCSS.lightboxImage}
                   decoding="async"
                   fetchPriority="high"
@@ -221,21 +212,40 @@ function Gallery() {
                   {currentImageIndex + 1} / {seriesImages[selectedSeries].length}
                 </div>
               </div>
-              <div 
+              <button
+                type="button"
                 className={`${GalleryCSS.navArea} ${GalleryCSS.nextArea}`}
                 onClick={goToNext}
+                aria-label="Next image"
               />
             </div>
             <div className={GalleryCSS.seriesInfo}>
-              {/* <h2>{galleryData[selectedSeries]?.title || selectedSeries}</h2>
-              <p>{galleryData[selectedSeries]?.description}</p> */}
-              <h2>{galleryData[selectedSeries]?.title}</h2>
-              <p>{galleryData[selectedSeries]?.description}</p>
+              <h1>{galleryData[selectedSeries]?.title || selectedSeries}</h1>
+              {galleryData[selectedSeries]?.description && (
+                <p>{galleryData[selectedSeries].description}</p>
+              )}
             </div>
           </div>
-          <button className={GalleryCSS.closeButton} onClick={closeLightbox}>
-            ×
-          </button>
+        </main>
+      ) : seriesName ? (
+        <main className={GalleryCSS.detailPage}>
+          <p>Work not found.</p>
+          <Link className={GalleryCSS.backLink} to="/gallery">Back to Gallery</Link>
+        </main>
+      ) : (
+        <div className={GalleryCSS.galleryColumn}>
+          <div className={GalleryCSS.mainGallerySection}>
+            {renderMoreWorksStyleGrid(mainGallerySeries, { eagerFirst: true })}
+          </div>
+
+          <div className={GalleryCSS.moreWorksSection}>
+            {renderMoreWorksStyleGrid(moreWorksSeries)}
+          </div>
+
+          <div className={GalleryCSS.inProgressGallery}>
+            <h2 className={GalleryCSS.moreWorksHeading}>In Progress</h2>
+            {renderMoreWorksStyleGrid(inProgressSeries)}
+          </div>
         </div>
       )}
       <Footer />
