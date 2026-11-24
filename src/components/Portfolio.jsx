@@ -17,14 +17,6 @@ const workImageContext = require.context(
 const studiesFeatureImage = require("../assets/images/study_1_smile/cover.jpg");
 let workImagePreloadStarted = false;
 
-// Preload images for smoother transitions
-const preloadImages = () => {
-  images.forEach(src => {
-    const img = new Image();
-    img.src = src;
-  });
-};
-
 const preloadWorkImages = () => {
   if (workImagePreloadStarted || navigator.connection?.saveData) return;
   workImagePreloadStarted = true;
@@ -67,12 +59,6 @@ function Portfolio() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
-
-  // Preload images on component mount
-  useEffect(() => {
-    preloadImages();
-    preloadWorkImages();
-  }, []);
 
   // Auto-rotate slideshow every 5 seconds
   useEffect(() => {
@@ -187,7 +173,10 @@ function Portfolio() {
                   alt={`Portfolio ${index + 1}`}
                   className={PortfolioCSS.image}
                   draggable="false"
-                  loading={index === 0 ? "eager" : "lazy"}
+                  loading={index === currentIndex ? "eager" : "lazy"}
+                  fetchPriority={index === currentIndex ? "high" : "low"}
+                  decoding="async"
+                  onLoad={index === currentIndex ? preloadWorkImages : undefined}
                 />
               </div>
             ))}
